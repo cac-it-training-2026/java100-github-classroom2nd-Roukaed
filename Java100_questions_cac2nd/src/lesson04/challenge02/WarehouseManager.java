@@ -95,21 +95,20 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
-
 		//ここに入力処理を記述する。
-
+		int DataFlame = Integer.parseInt(br.readLine());
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
 		//ここに入力処理を記述する。
-
+		int num_elements = Integer.parseInt(br.readLine());
 
 		boolean errFlag = false;
 
-
 		//ここに入力値の範囲チェック処理を記述する。
-
+		if (DataFlame > 3 || DataFlame < 1 || num_elements < 0 || num_elements > 3) {
+			System.out.println("そのような選択肢はありません。");
+		}
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -126,10 +125,73 @@ public class WarehouseManager {
 			String[] strArray = null;
 			int[] intArray = null;
 
-
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
+			switch (DataFlame) {
 
+			case 1:
+				switch (num_elements) {
+				case 1:
+					charArray = new char[1];
+					charArray[0] = 'a';
+					break;
+
+				case 2:
+					charArray = new char[2];
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+					break;
+
+				case 3:
+					charArray = new char[3];
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+					charArray[2] = 'c';
+					break;
+				}
+			case 2:
+				switch (num_elements) {
+				case 1:
+					strArray = new String[1];
+					strArray[0] = "ABC";
+					break;
+
+				case 2:
+					strArray = new String[2];
+					strArray[0] = "ABC";
+					strArray[1] = "DEF";
+					break;
+
+				case 3:
+					strArray = new String[3];
+					strArray[0] = "ABC";
+					strArray[1] = "DEF";
+					strArray[2] = "GHI";
+					break;
+				}
+				break;
+
+			case 3:
+				switch (num_elements) {
+				case 1:
+					intArray = new int[1];
+					intArray[0] = 1;
+					break;
+
+				case 2:
+					intArray = new int[2];
+					intArray[0] = 1;
+					intArray[1] = 2;
+					break;
+
+				case 3:
+					intArray = new int[3];
+					intArray[0] = 1;
+					intArray[1] = 2;
+					intArray[2] = 3;
+					break;
+				}
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +201,14 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
-
+			if (DataFlame == 1) {
+				System.out.println(charArray[num_elements - 1] + "です。");
+			} else if (DataFlame == 2) {
+				System.out.println(strArray[num_elements - 1] + "です。");
+			} else {
+				System.out.println(intArray[num_elements - 1] + "です。");
+			}
 
 			System.out.println("です。\n");
 
