@@ -91,12 +91,12 @@ public class Detective {
 		switch (num) {
 		case 1:
 			System.out.println("探偵：");
-			System.out.println("正解です。");
+			System.out.println("不正解です。");
 			break;
 
 		case 2:
 			System.out.println("探偵：");
-			System.out.println("不正解です");
+			System.out.println("正解です");
 			break;
 
 		}
