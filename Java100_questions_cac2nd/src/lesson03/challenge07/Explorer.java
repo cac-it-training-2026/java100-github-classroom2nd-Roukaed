@@ -85,6 +85,7 @@ public class Explorer {
 
 		//ここにwhile文、if文を利用した処理を記述
 		while (i <= 2) {
+			//			alligator++;
 			i++;
 			int kindAlli = (int) (Math.random() * 10 % 3);
 
