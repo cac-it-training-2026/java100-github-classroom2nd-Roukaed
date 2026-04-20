@@ -54,12 +54,45 @@ public class WarehouseManager {
 		int[] ABKosanArray1 = new int[5];
 		int[] ABKosanArray2 = new int[5];
 
-
 		//ここに重複チェックおよび値の代入処理を記述する①(1～5)
+		boolean loopFlag = false;
+		int intputNum = 0;
+		int NumK = 1;
 
+		while (loopFlag != true) {
+			for (int i = 0; i < 5; i++) {
+				ABKosanArray1[i] = (int) (Math.random() * 10 % 5) + 1;
+				intputNum += ABKosanArray1[i];
+				NumK *= ABKosanArray1[i];
+			}
+			if (intputNum == 15 && NumK == 120) {
+				loopFlag = true;
+			} else {
+				intputNum = 0;
+				NumK = 1;
+
+			}
+		}
 
 		//ここに重複チェックおよび値の代入処理を記述する②(6～10)
+		loopFlag = false;
+		intputNum = 0;
+		NumK = 1;
 
+		while (loopFlag != true) {
+			for (int i = 0; i < 5; i++) {
+				ABKosanArray2[i] = (int) (Math.random() * 10 % 5) + 6;
+				intputNum += ABKosanArray2[i];
+				NumK *= ABKosanArray2[i];
+			}
+			if (intputNum == 40 && NumK == 30240) {
+				loopFlag = true;
+			} else {
+				intputNum = 0;
+				NumK = 1;
+
+			}
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産から新たに預かった荷物と以前から預かっている荷物の");
@@ -88,11 +121,35 @@ public class WarehouseManager {
 		System.out.println("E主任：");
 		System.out.println("その二つの荷物を奇数群、偶数群で入れ替えてください。\n");
 
-
-
 		//ここに奇数群(ABKosanArray1)と偶数群(ABKosanArray2)に振り分ける処理を記述する。
-
-
+		int[] even = new int[5];
+		int[] odd = new int[5];
+		int e = 0;
+		int o = 0;
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			if (ABKosanArray1[i] % 2 == 0) {
+				even[e] = ABKosanArray1[i];
+				e++;
+			} else {
+				odd[o] = ABKosanArray1[i];
+				o++;
+			}
+		}
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			if (ABKosanArray2[i] % 2 == 0) {
+				even[e] = ABKosanArray2[i];
+				e++;
+			} else {
+				odd[o] = ABKosanArray2[i];
+				o++;
+			}
+		}
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			ABKosanArray1[i] = odd[i];
+		}
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			ABKosanArray2[i] = even[i];
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("はい、入れ替えました。");

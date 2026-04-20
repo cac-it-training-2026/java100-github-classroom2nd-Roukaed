@@ -46,7 +46,7 @@ public class WarehouseManager {
 				intputNum += bag[i];
 				NumK *= bag[i];
 			}
-			if (intputNum != 15 && NumK == 120) {
+			if (intputNum == 15 && NumK == 120) {
 				loopFlag = true;
 			} else {
 				intputNum = 0;
