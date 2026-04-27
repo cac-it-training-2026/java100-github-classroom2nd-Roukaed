@@ -77,15 +77,55 @@ public class Explorer {
 		System.out.println("ワニ3匹発見！\n");
 		System.out.println("グーワニかチョキワニかパーワニのどれかです。\n");
 
-		int alligator = 0;
+		//		int alligator = 0;
 		int hand = 0;
 		int i = 0;
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 		//ここにwhile文、if文を利用した処理を記述
+		while (i <= 2) {
+			//			alligator++;
+			i++;
+			int kindAlli = (int) (Math.random() * 10 % 3);
 
+			System.out.println("\n隊長：");
+			System.out.println("どの手を出して通り抜けますか。");
+			System.out.println("（グー… 1 : チョキ… 2 : パー… 3）＞");
+
+			String str = br.readLine();
+			hand = Integer.parseInt(str);
+
+			if (kindAlli == 0) {
+				System.out.println("相手はグーワニでした。");
+
+				if (hand != 2) {
+					System.out.println(i + "匹目通り抜け成功！");
+				} else {
+					break;
+				}
+			}
+
+			if (kindAlli == 1) {
+				System.out.println("相手はチョキワニでした。");
+
+				if (hand != 3) {
+					System.out.println(i + "匹目通り抜け成功！");
+				} else {
+					break;
+				}
+			}
+
+			if (kindAlli == 2) {
+				System.out.println("相手はパーワニでした。");
+
+				if (hand != 1) {
+					System.out.println(i + "匹目通り抜け成功！");
+				} else {
+					break;
+				}
+			}
+		}
 
 		if (i == 3) {
 			System.out.println("隊長：");

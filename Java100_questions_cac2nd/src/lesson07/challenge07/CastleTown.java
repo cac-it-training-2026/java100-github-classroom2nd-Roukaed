@@ -26,42 +26,73 @@
 package lesson07.challenge07;
 
 class Samurai {
+	String name;
 
+	//ここにフィールドnameを記述
+	String nameString;
 
-    //ここにフィールドnameを記述
+	void fight() {
+		System.out.println("戦うよ～。");
+	}
 
-
-    void fight() {
-        System.out.println("戦うよ～。");
-    }
-
-    void work() {
-        System.out.println("何かして働くよ～");
-    }
+	void work() {
+		System.out.println("何かして働くよ～");
+	}
 
 }
 
-
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
+	public Retainer(String name) {
+		this.name = name;
+	}
 
+	void getPaid() {
+		System.out.println("給料をもらうよ～。");
+	}
+
+	void work() {
+		System.out.println("年貢を取り立てるよ～。");
+	}
+
+	public String toString() {
+		return "拙者は○△□藩士、" + name + "太郎ともうす。";
+	}
+}
 
 //ここにRoninクラスを記述
+class Ronin extends Samurai {
+	public Ronin(String name) {
+		this.name = name;
+	}
 
+	void covered() {
+		System.out.println("傘はりするよ～");
+	}
+
+	void work() {
+		System.out.println("傘張るよ～。");
+	}
+
+	public String toString() {
+		return "拙者は武州○△□村の浪人、" + name + "兵衛ともうす。";
+	}
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("藩士クラスのtoString()メソッドを確認します。\n");
+	public static void main(String[] args) {
+		System.out.println("藩士クラスのtoString()メソッドを確認します。\n");
 
+		//ここに適切な処理を記述
+		Retainer rt = new Retainer("テスト");
+		System.out.println(rt.toString());
 
-        //ここに適切な処理を記述
+		System.out.println("\n浪人クラスのtoString()メソッドを確認します。\n");
 
+		//ここに適切な処理を記述
+		Ronin rn = new Ronin("テスト");
+		System.out.println(rn.toString());
 
-        System.out.println("\n浪人クラスのtoString()メソッドを確認します。\n");
-
-
-        //ここに適切な処理を記述
-
-
-    }
+	}
 }
