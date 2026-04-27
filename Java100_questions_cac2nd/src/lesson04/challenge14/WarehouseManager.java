@@ -153,24 +153,52 @@ public class WarehouseManager {
 		int[] jankenArray2 = new int[5];
 
 		//Yさんのコンテナにじゃんけんの手を入れる処理を記述する。
-		for (int i = 0; i < jankenArray1.length; i++) {
-			System.out.println("コンテナ" + (i + 1) + "に入れるブロックを選択してください（1.グー、2.チョキ、3.パー）＞");
-			int hand = Integer.parseInt(br.readLine());
-			if (hand > 3 || hand < 0) {
+		//		for (int i = 0; i < jankenArray1.length; i++) {
+		//			System.out.println("コンテナ" + (i + 1) + "に入れるブロックを選択してください（1.グー、2.チョキ、3.パー）＞");
+		//			int hand = Integer.parseInt(br.readLine());
+		//			if (hand > 3 || hand < 0) {
+		//			}
+		//			if (hand == 1) {
+		//				jankenArray1[i] = 0;
+		//				stoneCount1++;
+		//			} else if (hand == 2) {
+		//				jankenArray1[i] = 1;
+		//				scissorsCount1++;
+		//			} else {
+		//				jankenArray1[i] = 2;
+		//				paperCount1++;
+		//			}
+		//			if (stoneCount1 > 2 || scissorsCount1 > 2 || paperCount1 > 2) {
+		//				i = 0;
+		//			}
+		//		}
+		boolean flag = false;
+		while (flag != true) {
+			for (int i = 0; i < jankenArray1.length; i++) {
+				System.out.println("コンテナ" + (i + 1) + "に入れるブロックを選択してください（1.グー、2.チョキ、3.パー）＞");
+				int hand = Integer.parseInt(br.readLine());
+				if (hand > 3 || hand < 0) {
+					System.out.println("入りません");
+					i--;
+					continue;
+				}
+				if (hand == 1) {
+					jankenArray1[i] = 0;
+					stoneCount1++;
+				} else if (hand == 2) {
+					jankenArray1[i] = 1;
+					scissorsCount1++;
+				} else {
+					jankenArray1[i] = 2;
+					paperCount1++;
+				}
+				if (stoneCount1 > 2 || scissorsCount1 > 2 || paperCount1 > 2) {
+					i = 0;
+				} else {
+					flag = true;
+				}
 			}
-			if (hand == 1) {
-				jankenArray1[i] = 0;
-				stoneCount1++;
-			} else if (hand == 2) {
-				jankenArray1[i] = 1;
-				scissorsCount1++;
-			} else {
-				jankenArray1[i] = 2;
-				paperCount1++;
-			}
-			if (stoneCount1 > 2 || scissorsCount1 > 2 || paperCount1 > 2) {
-				i = 0;
-			}
+
 		}
 
 		//Sさんのコンテナにじゃんけんの手を入れる処理を記述する。（ランダム）
@@ -208,7 +236,7 @@ public class WarehouseManager {
 			int openNum1 = 0;
 
 			//Yさんのどのコンテナをオープンするか入力してもらう処理を記述する。
-			boolean flag = false;
+			flag = false;
 			while (flag == false) {
 				System.out.println("オープンするコンテナを選んでください。>");
 				openNum1 = Integer.parseInt(br.readLine()) - 1;
